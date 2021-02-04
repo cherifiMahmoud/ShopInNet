@@ -48,7 +48,7 @@ namespace Infrastructure.Repository
 
         public Categorie GetCategorie(string categorieName)
         {
-            return db.categories.Find(categorieName);
+            return db.categories.FirstOrDefault(C => C.CategorieName.ToLower().Equals(categorieName.ToLower()));
         }
 
         public IEnumerable<Categorie> GetCategories()

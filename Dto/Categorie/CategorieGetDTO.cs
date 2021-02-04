@@ -6,7 +6,6 @@ namespace Dto.Categorie
 {
     public class CategorieGetDTO
     {
-        public int CategorieId { get; set; }
         public string CategorieName { get; set; }
     }
 }
