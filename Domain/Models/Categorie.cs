@@ -12,3 +12,10 @@ namespace Domain.Models
         public string CategorieName { get; set; }
     }
 }
+
+namespace Domain
+{
+    public class Categorie
+    {
+    }
+}
