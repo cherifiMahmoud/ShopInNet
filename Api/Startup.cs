@@ -1,4 +1,6 @@
+using Api.Mapper.CategorieMapping;
 using ApplicationLayer.DataBase;
+using AutoMapper;
 using Domain.IRepository;
 using Infrastructure.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -34,6 +36,8 @@ namespace Api
                                                         options.UseSqlServer(Configuration.GetConnectionString("constr"))
                                                         );
             services.AddScoped<ICategorieRepository, CategorieRepository>();
+            services.AddAutoMapper(typeof(CategorieMappings));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

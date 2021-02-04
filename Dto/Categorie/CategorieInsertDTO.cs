@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Dto.Categorie
 {
-    class CategorieInsertDTO
+    public class CategorieInsertDTO
     {
         [Required]
         public string CategorieName { get; set; }
