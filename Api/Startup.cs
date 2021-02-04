@@ -1,4 +1,6 @@
 using ApplicationLayer.DataBase;
+using Domain.IRepository;
+using Infrastructure.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +33,7 @@ namespace Api
             services.AddDbContext<ApplicationDbContext>(options =>
                                                         options.UseSqlServer(Configuration.GetConnectionString("constr"))
                                                         );
+            services.AddScoped<ICategorieRepository, CategorieRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
