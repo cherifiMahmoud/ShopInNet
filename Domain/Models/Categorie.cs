@@ -5,17 +5,10 @@ using System.Text;
 
 namespace Domain.Models
 {
-    class Categorie
+    public class Categorie
     {
         [Key]
         public int CategorieId { get; set; }
         public string CategorieName { get; set; }
-    }
-}
-
-namespace Domain
-{
-    public class Categorie
-    {
     }
 }

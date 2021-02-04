@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,6 +13,6 @@ namespace ApplicationLayer.DataBase
 
         }
 
-        public DbSet<Categorie> MyProperty { get; set; }
+        public DbSet<Categorie> categories { get; set; }
     }
 }
