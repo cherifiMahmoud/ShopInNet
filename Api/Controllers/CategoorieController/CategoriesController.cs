@@ -74,7 +74,7 @@ namespace Api.Controllers.CategoorieController
         }
 
         [HttpPost]
-        [ProducesResponseType(201)]
+        [ProducesResponseType(201, Type = typeof(CategorieInsertDTO))]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
         public IActionResult CreateCategorie([FromBody] CategorieInsertDTO categorieInsertDTO )
