@@ -13,6 +13,7 @@ namespace Api.Controllers.CategoorieController
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ProducesResponseType(400)]
     public class CategoriesController : ControllerBase
     {
         private readonly ICategorieRepository categorieRepository;
@@ -26,6 +27,8 @@ namespace Api.Controllers.CategoorieController
         public IMapper Mapper { get; }
 
         [HttpGet]
+        [ProducesResponseType(200,Type =typeof(List<CategorieGetDTO>))]
+        [ProducesDefaultResponseType]
         public IActionResult GetCategories()
         {
             var CategorieList = categorieRepository.GetCategories();
@@ -39,6 +42,8 @@ namespace Api.Controllers.CategoorieController
         }
 
         [HttpGet("{CategorieId}", Name = "GetCategorie")]
+        [ProducesResponseType(200, Type = typeof(CategorieGetDTO))]
+        [ProducesDefaultResponseType]
         public IActionResult GetCategorie(int CategorieId)
         {
             var CategorieObj = categorieRepository.GetCategorie(CategorieId);
@@ -53,6 +58,8 @@ namespace Api.Controllers.CategoorieController
         }
 
         [HttpGet("Search/{CategorieName}")]
+        [ProducesResponseType(200, Type = typeof(CategorieGetDTO))]
+        [ProducesDefaultResponseType]
         public IActionResult GetCategorie(string CategorieName)
         {
             var CategorieObj = categorieRepository.GetCategorie(CategorieName);
@@ -67,6 +74,9 @@ namespace Api.Controllers.CategoorieController
         }
 
         [HttpPost]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public IActionResult CreateCategorie([FromBody] CategorieInsertDTO categorieInsertDTO )
         {
             if (categorieInsertDTO == null)
@@ -91,6 +101,9 @@ namespace Api.Controllers.CategoorieController
         }
 
         [HttpPatch("{CategorieId}")]
+        [ProducesResponseType(200, Type = typeof(CategorieUpdateDTO))]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public IActionResult UpdateCategorie(int CategorieId, [FromBody]CategorieUpdateDTO categorieUpdateDTO)
         {
             if (categorieUpdateDTO == null || CategorieId != categorieUpdateDTO.CategorieId)
@@ -119,6 +132,10 @@ namespace Api.Controllers.CategoorieController
         }
 
         [HttpDelete("{CategorieId}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        [ProducesResponseType(409)]
         public IActionResult DeleteCategorie(int CategorieId)
         {
             if (! categorieRepository.CheckCategorieExist(CategorieId))
