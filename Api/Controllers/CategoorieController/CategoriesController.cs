@@ -52,6 +52,20 @@ namespace Api.Controllers.CategoorieController
             return Ok(CategorieDTO);
         }
 
+        [HttpGet("Search/{CategorieName}")]
+        public IActionResult GetCategorie(string CategorieName)
+        {
+            var CategorieObj = categorieRepository.GetCategorie(CategorieName);
+
+            if (CategorieObj == null)
+            {
+                return NotFound();
+            }
+
+            var CategorieDTO = Mapper.Map<CategorieGetDTO>(CategorieObj);
+            return Ok(CategorieDTO);
+        }
+
         [HttpPost]
         public IActionResult CreateCategorie([FromBody] CategorieInsertDTO categorieInsertDTO )
         {
