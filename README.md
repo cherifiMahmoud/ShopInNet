@@ -1,4 +1,4 @@
-Une Application web model que j’ai réalisé pour prouver ma compétence, développée avec un code propre en suivant l’architecture DDD ainsi que les tests unitaires. 
+Un exemple d’une boutique en ligne que j’ai développé avec ASP.Net Core et React JS.
 
 Keywords:  ASP.NET Web API, Domain driven design, Identity, Test unitaire, ReactJs, Visual Studio, UML, OOP, Git, Github.
 
